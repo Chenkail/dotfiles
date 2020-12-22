@@ -1,1 +1,1 @@
-# zsh-config
+# Dotfiles
