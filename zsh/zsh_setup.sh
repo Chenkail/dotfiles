@@ -16,15 +16,20 @@ done
 # zplug
 curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 
-curl -O ${DOTFILES}/.zpretzorc
-curl -O ${DOTFILES}/.zshrc
+
+# Config files
+curl -o zpretzorc.new -O ${DOTFILES}/.zpretzorc
+curl -O zshrc.new ${DOTFILES}/.zshrc
+
+mv zpretzorc.new "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/zpretzorc
+mv zshrc.new "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/zshrc
 
 # Set up thefuck
 fuck
 fuck
 
-# Reload zsh
-exec zsh
-
 # Run p10k setup
 p10k configure
+
+# Reload zsh
+exec zsh
