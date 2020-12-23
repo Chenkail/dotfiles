@@ -47,6 +47,6 @@ then
   p10k configure
 fi
 
+# Reload zsh to save changes
 echo "Reloading zsh!"
-# Reload zsh
 exec zsh
