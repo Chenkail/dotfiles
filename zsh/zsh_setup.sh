@@ -42,14 +42,14 @@ else
   echo
 fi
 
-# Run p10k setup
-if read -q '?Configure p10k? (y/n) '
-then
-  echo
-  p10k configure
-else
-  echo
-fi
+# # Run p10k setup - DOESN'T WORK BECAUSE ZSH NEEDS TO RESTART
+# if read -q '?Configure p10k? (y/n) '
+# then
+#   echo
+#   p10k configure
+# else
+#   echo
+# fi
 
 # Reload zsh to save changes
 echo "Reloading zsh!"
