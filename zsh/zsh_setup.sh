@@ -18,18 +18,26 @@ curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/instal
 
 
 # Config files
-curl -o zpretzorc.new -O ${DOTFILES}/.zpretzorc
-curl -O zshrc.new ${DOTFILES}/.zshrc
+curl ${DOTFILES}/.zpretzorc > zpretzorc.new
+curl ${DOTFILES}/.zshrc > zshrc.new
 
 mv zpretzorc.new "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/zpretzorc
 mv zshrc.new "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/zshrc
 
 # Set up thefuck
-fuck
-fuck
+read name\?"Configure thefuck? "
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+  fuck
+  fuck
+fi
 
 # Run p10k setup
-p10k configure
+read name\?"Configure p10k? "
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+  p10k configure
+fi
 
 # Reload zsh
 exec zsh
