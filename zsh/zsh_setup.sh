@@ -33,18 +33,22 @@ mv zshrc.new "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/zshrc
 echo
 
 # Set up thefuck
-read name\?"Configure thefuck? "
-if [[ $REPLY =~ ^[Yy]$ ]]
+if read -q '?Configure thefuck? (y/n) '
 then
+  echo
   fuck
   fuck
+else
+  echo
 fi
 
 # Run p10k setup
-read name\?"Configure p10k? "
-if [[ $REPLY =~ ^[Yy]$ ]]
+if read -q '?Configure p10k? (y/n) '
 then
+  echo
   p10k configure
+else
+  echo
 fi
 
 # Reload zsh to save changes
