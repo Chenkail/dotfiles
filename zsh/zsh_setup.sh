@@ -3,6 +3,9 @@
 # Home directory
 cd ~
 
+# Prereqs
+sudo apt install curl
+
 # Repository folder for zsh config files
 DOTFILES='https://raw.githubusercontent.com/Chenkail/dotfiles/main/zsh'
 
@@ -33,6 +36,10 @@ mv zshrc.new "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/zshrc
 echo
 
 # Set up thefuck
+sudo apt update
+sudo apt install python3-dev python3-pip python3-setuptools
+sudo pip3 install thefuck
+
 if read -q '?Configure thefuck? (y/n) '
 then
   echo
