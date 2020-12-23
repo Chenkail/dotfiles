@@ -7,7 +7,7 @@ cd ~
 DOTFILES='https://raw.githubusercontent.com/Chenkail/dotfiles/main/zsh'
 
 # Install prezto
-if [ -d ".zprezto" ]; then
+if [ ! -d ".zprezto" ]; then
   echo "Installing prezto:"
   git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
   setopt EXTENDED_GLOB
@@ -18,7 +18,7 @@ if [ -d ".zprezto" ]; then
 fi
 
 # zplug
-if [ -d ".zplug" ]; then
+if [ ! -d ".zplug" ]; then
   echo "Installing zplug:"
   curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 fi
